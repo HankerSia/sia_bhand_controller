@@ -1,0 +1,26 @@
+1.把id_data_msgs包拷贝到工作空间编译
+
+2.（1）新创建包时，加入id_data_msgs包的依赖
+  （2）已有的包，在CMakeLists.txt文件中find_package中加入id_data_msgs
+find_package(catkin REQUIRED COMPONENTS 
+  id_data_msgs
+)
+在package.xml中加入
+<build_depend>id_data_msgs</build_depend>
+
+3头文件包含：#include <id_data_msgs/ID_Data.h>
+
+4消息发布：
+ros::Publisher info_pub = n.advertise<id_data_msgs::ID_Data>("/topic_name",100);
+id_data_msgs::ID_Data info_msg;
+info_msg.id=1;
+info_msg.data[i] = count;
+
+
+5消息订阅：
+ros::Subscriber sub = n.subscribe("/topic_name", 100, infoCallback);
+回调函数
+void infoCallback(const id_data_msgs::ID_Data::ConstPtr& msg)
+{
+  ROS_INFO("I heard: [%d]", msg->id);
+}
