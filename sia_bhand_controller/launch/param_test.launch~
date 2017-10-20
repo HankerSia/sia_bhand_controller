@@ -1,0 +1,9 @@
+<launch>
+
+	
+	<node pkg="beginner_tutorials" type="ge_test" name="topic_control" output="screen"/>
+	<param name="parking_x" type="double" value="100.0" />
+	<param name="parking_y" type="double" value="600.0" />
+	
+
+</launch>

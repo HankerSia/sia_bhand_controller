@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="beginner_tutorials" type="pcan_test" name="PCAN_Test" output="screen">
+	<param name="dev_name" type="string" value="/dev/pcan1" />
+	<param name="fifo_send_on" type="bool" value="true" />	
+	<param name="display_on" type="bool" value="false" />	
+	</node>	
+</launch>
